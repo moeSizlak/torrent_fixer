@@ -3,7 +3,7 @@ If you ever lose your QBT data due to a hard disk loss (or other reasons), this 
 * You need to have the data files.  This tool will search for them and find them where ever they may be, and add them to QBT with the correct path, and also skip the hash-recheck.  (The files must have the correct name and file size.)
 
 Usage:
-* ruby scan_torrents.rb <list of directories to serach for *.torrent files>
-* ruby scan_files.rb <list of directories to serach for data files>
-* ruby send_qbt.rb <URL of QBittorrent API such as http://localhost:8080> <username> <password>
+* ruby scan_torrents.rb \<list of directories to search for *.torrent files\>
+* ruby scan_files.rb \<list of directories to search for data files\>
+* ruby send_qbt.rb \<URL of QBittorrent API such as http://localhost:8080\> \<username\> \<password\>
 
