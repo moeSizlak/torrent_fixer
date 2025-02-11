@@ -3,9 +3,9 @@ require 'sequel'
 
 # make sure there is at least 1 argument, and all arguments are directories
 if ARGV.empty? || !ARGV[0] || ARGV[0].length == 0
-  STDERR.puts "ERROR:  Usage:  $0 <1 or more paths to search for data files>"
+  STDERR.puts "ERROR:  Usage: #{$0} <1 or more paths to search for data files>"
   exit(1)
-else # parse the paths to ensure they all exist:
+else # parse the paths to ensure they are directories:
   ARGV.each do |a|
     if !File.directory?(a)
       STDERR.puts "ERROR:  Usage:  $0 <1 or more paths to search for data files>"
@@ -16,6 +16,9 @@ end
 
 DB = Sequel.connect('sqlite://tf.db')
 
+# sql table for data files (disk files)
+# just a list of every file and folder in the user-entered directories
+# (torrent contents will be matched to disk contents in these folders)
 if !DB.table_exists?(:data_files)
   DB.create_table :data_files do
     primary_key :id
@@ -25,7 +28,7 @@ if !DB.table_exists?(:data_files)
   end
 end
 
-
+# Sequel model
 class DataFile < Sequel::Model(DB[:data_files])
   set_primary_key :id
 end
