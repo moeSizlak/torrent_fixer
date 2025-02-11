@@ -5,5 +5,5 @@ If you ever lose your QBT data due to a hard disk loss (or other reasons), this 
 Usage:
 * ruby scan_torrents.rb \<list of directories to search for *.torrent files\>
 * ruby scan_files.rb \<list of directories to search for data files\>
-* ruby send_qbt.rb \<URL of QBittorrent API such as http://localhost:8080\> \<username\> \<password\>
+* ruby send_qbt.rb \<URL of QBittorrent API such as http://localhost:8080 \> \<username\> \<password\>
 
